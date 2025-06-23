@@ -15,72 +15,6 @@ function setTheme() {
         const logo = document.querySelector(".logo");
         const themeBtn = document.querySelector(".themeBtn");
         const asideText = document.querySelector(".asideText");
-        const btns = document.querySelectorAll(".btn")
-        const items = document.querySelectorAll(".item")
-        const description = document.querySelectorAll(".item.description")
-        const removeBtn = document.querySelectorAll(".item.removeBtn")
-
-        if (theme = "light") {
-            theme = "dark";
-
-            bg.classList.add("dark");
-            headerBox.classList.add("dark");
-            logo.classList.add("dark")
-            themeBtn.classList.add("dark")
-            asideText.classList.add("dark")
-
-            btns.forEach(elem => {
-                elem.classList.add("dark")
-            });
-
-            items.forEach(elem => {
-                elem.classList.add("dark")
-            });
-
-            description.forEach(elem => {
-                elem.classList.add("dark")
-            });
-            
-            removeBtn.forEach(elem => {
-                elem.classList.add("dark")
-            });
-
-            setTheme();
-        } else {
-            theme = "light";
-            
-            bg.classList.remove("dark");
-            headerBox.classList.remove("dark");
-            logo.classList.remove("dark")
-            themeBtn.classList.remove("dark")
-            asideText.classList.remove("dark")
-
-            btns.forEach(elem => {
-                elem.classList.remove("dark")
-            });
-
-            items.forEach(elem => {
-                elem.classList.remove("dark")
-            });
-
-            description.forEach(elem => {
-                elem.classList.remove("dark")
-            });
-            
-            removeBtn.forEach(elem => {
-                elem.classList.remove("dark")
-            });
-        }
-    })
-}function setTheme() {
-    const btn = document.querySelector(".themeBtn");
-
-    btn.addEventListener('click', () => {
-        const bg = document.querySelector("body");
-        const headerBox = document.querySelector(".headerBox");
-        const logo = document.querySelector(".logo");
-        const themeBtn = document.querySelector(".themeBtn");
-        const asideText = document.querySelector(".asideText");
         const btns = document.querySelectorAll(".btn");
         const items = document.querySelectorAll(".item");
         const description = document.querySelectorAll(".item.description");
@@ -116,9 +50,8 @@ function setTheme() {
     });
 }
 
-
 function setData() {
-    fetch("../data.json")
+    fetch("https://danielnecka.github.io/FrontedMentorBrowserExtensionsManagerUI/data.json")
         .then(response => response.json())
         .then(data => {
             allData = data;
