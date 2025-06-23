@@ -1,0 +1,208 @@
+* {
+  cursor: default !important;
+}
+
+body {
+    width: 100%;
+
+    font-family: "Noto Sans", sans-serif;
+
+    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+
+    background-attachment: fixed;
+
+    header {
+        width: 100%;
+        height: 90px;
+
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        .headerBox {
+            width: 92%;
+            height: 65px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-sizing: border-box;
+
+            border-radius: 10px;
+
+            background-color: hsl(200, 60%, 99%);
+            border: solid 1px hsl(217, 61%, 90%);
+
+            .logo {
+                width: 179px;
+                height: 41px;
+
+                margin-left: 13px;
+                background: url(../assets/images/logo.svg);
+            }
+
+            .themeBtn {
+                width: 50px;
+                height: 50px;
+
+                border-radius: 12px;
+
+                margin-right: 13px;
+
+                background: hsl(0, 0%, 93%) url(../assets/images/icon-moon.svg) no-repeat center center;
+            }
+        }
+    }
+
+    aside {
+        width: 100%;
+
+        margin-top: 45px;
+
+        .asideText {
+            width: 100%;
+
+            font-size: 32px;
+            font-weight: 700;
+
+            margin-top: -4px;
+
+            text-align: center;
+        }
+
+        .bar {
+            width: 100%;
+            height: 46px;
+
+            display: flex;
+            justify-content: center;
+
+            margin-top: 25px;
+
+            .btns {
+                width: 300px;
+
+                box-sizing: border-box;
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .btn {
+                    height: 45px;
+
+                    padding-left: 20px;
+                    padding-right: 20px;
+
+                    font-size: 20px;
+                    font-weight: 400;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    border-radius: 22.5px;
+                    border: solid 1px hsl(217, 61%, 90%);
+                    background-color: hsl(200, 60%, 99%);
+
+                    transition: all 0.5s;
+                }
+
+                .selected {
+                    background-color: hsl(3, 77%, 44%);
+                    color: hsl(200, 60%, 99%);
+
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+
+    main {
+        width: 100%;
+        height: 250px;
+
+        display: flex;
+        justify-content: center;
+
+        margin-top: 32px;
+
+        .itemContainer {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            
+            .item{
+                width: 345px;
+                height: 200px;
+
+                background-color: hsl(200, 60%, 99%);
+                border: solid 1px hsl(217, 61%, 90%);
+                border-radius: 20px;
+
+                transition: all 1s;
+
+                .itemHeader {
+                    margin-top: 20px;
+
+                    display: flex;
+                    box-sizing: border-box;
+
+                    img {
+                        position: absolute;
+                        margin-left: 20px;
+                    }
+
+                    .textParent {
+                        margin-left: 95px;
+                    }
+
+                    .title {
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+
+                    .description {
+                        max-width: 90%;
+                        min-height: 67.5px;
+
+                        margin-top: 10px;
+
+                        font-weight: 400;
+                        line-height: 1.4;
+                    }
+                }
+
+                .bar {
+                    width: 100%;
+                    height: 40px;
+
+                    margin-top: 22px;
+
+                    padding-left: 6%;
+                    padding-right: 6%;
+                    box-sizing: border-box;
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .removeBtn {
+                        height: 40px;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        padding-left: 15px;
+                        padding-right: 15px;
+
+                        border: solid 1px hsl(217, 61%, 90%);
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
