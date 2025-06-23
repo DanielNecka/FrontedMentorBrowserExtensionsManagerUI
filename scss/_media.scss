@@ -1,5 +1,24 @@
 @media screen and (min-width: 1024px) {
+    aside {
+        display: flex;
+        justify-content: space-between;
+        width: 92% !important;
+        margin-left: 4% !important;
+
+        .asideText {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .bar {
+            display: flex !important;
+            justify-content: right !important;
+            align-items: center !important;
+        }
+    }
+    
     .itemContainer {
-          grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 }

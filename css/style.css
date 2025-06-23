@@ -58,6 +58,7 @@ table {
 
 body {
   width: 100%;
+  height: 100vh;
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   background-attachment: fixed;
@@ -132,6 +133,10 @@ body aside .bar .btns .btn {
   background-color: hsl(200, 60%, 99%);
   transition: all 0.5s;
 }
+body aside .bar .btns .btn:hover {
+  background-color: hsl(3, 86%, 64%);
+  color: hsl(200, 60%, 99%);
+}
 body aside .bar .btns .selected {
   background-color: hsl(3, 77%, 44%);
   color: hsl(200, 60%, 99%);
@@ -145,17 +150,17 @@ body main {
   margin-top: 32px;
 }
 body main .itemContainer {
+  width: 92%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
 body main .itemContainer .item {
-  width: 345px;
+  width: 100%;
   height: 200px;
   background-color: hsl(200, 60%, 99%);
   border: solid 1px hsl(217, 61%, 90%);
   border-radius: 20px;
-  transition: all 1s;
 }
 body main .itemContainer .item .itemHeader {
   margin-top: 20px;
@@ -181,11 +186,10 @@ body main .itemContainer .item .itemHeader .description {
   line-height: 1.4;
 }
 body main .itemContainer .item .bar {
-  width: 100%;
+  width: 95%;
   height: 40px;
   margin-top: 22px;
-  padding-left: 6%;
-  padding-right: 6%;
+  padding-left: 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -200,6 +204,12 @@ body main .itemContainer .item .bar .removeBtn {
   padding-right: 15px;
   border: solid 1px hsl(217, 61%, 90%);
   border-radius: 20px;
+  transition: all 0.5s;
+}
+body main .itemContainer .item .bar .removeBtn:hover {
+  background-color: hsl(3, 77%, 44%);
+  color: hsl(200, 60%, 99%);
+  transition: all 0.5s;
 }
 
 .switch {
@@ -218,13 +228,13 @@ body main .itemContainer .item .bar .removeBtn {
 .slider {
   position: absolute;
   cursor: pointer;
-  background-color: rgb(85, 85, 85);
+  background-color: hsl(226, 11%, 37%);
   border-radius: 34px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition: 0.4s;
+  transition: all 0.4s ease-in-out !important;
 }
 
 .slider::before {
@@ -236,18 +246,72 @@ body main .itemContainer .item .bar .removeBtn {
   width: 15px;
   background-color: white;
   border-radius: 50%;
-  transition: 0.4s;
+  transition: all 0.4s ease-in-out !important;
 }
 
 .switch input:checked + .slider {
-  background-color: #f44336;
+  background-color: hsl(3, 77%, 44%);
 }
 
 .switch input:checked + .slider::before {
   transform: translateX(20px);
 }
 
+body.dark {
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+body.dark .headerBox.dark {
+  background: hsl(226, 25%, 17%);
+  border: none;
+}
+body.dark .headerBox.dark .logo.dark {
+  background-image: url(../assets/images/logo_light.svg);
+}
+body.dark .headerBox.dark .themeBtn.dark {
+  background: hsl(225, 23%, 24%) url(../assets/images/icon-sun.svg) no-repeat center center;
+}
+body.dark .asideText.dark {
+  color: hsl(200, 60%, 99%);
+}
+body.dark .btn.dark {
+  color: hsl(200, 60%, 99%) !important;
+  background: hsl(225, 23%, 24%) !important;
+  border: solid 1px hsl(226, 11%, 37%) !important;
+}
+body.dark .btn.selected.dark {
+  color: hsl(225, 23%, 24%) !important;
+  background: hsl(3, 71%, 56%) !important;
+  border: solid 1px hsl(226, 11%, 37%) !important;
+}
+body.dark .item.dark {
+  background-color: hsl(226, 25%, 17%);
+  color: hsl(200, 60%, 99%) !important;
+  border: solid 1px hsl(226, 11%, 37%);
+}
+body.dark .item.dark .description.dark {
+  color: hsl(0, 0%, 78%);
+}
+body.dark .item.dark .removeBtn.dark {
+  border: solid 1px hsl(226, 11%, 37%);
+}
+
 @media screen and (min-width: 1024px) {
+  aside {
+    display: flex;
+    justify-content: space-between;
+    width: 92% !important;
+    margin-left: 4% !important;
+  }
+  aside .asideText {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  aside .bar {
+    display: flex !important;
+    justify-content: right !important;
+    align-items: center !important;
+  }
   .itemContainer {
     grid-template-columns: repeat(3, 1fr) !important;
   }

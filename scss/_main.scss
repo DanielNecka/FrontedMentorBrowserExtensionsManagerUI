@@ -4,6 +4,7 @@
 
 body {
     width: 100%;
+    height: 100vh;
 
     font-family: "Noto Sans", sans-serif;
 
@@ -109,6 +110,11 @@ body {
                     transition: all 0.5s;
                 }
 
+                .btn:hover {
+                    background-color: hsl(3, 86%, 64%);
+                    color: hsl(200, 60%, 99%);
+                }
+
                 .selected {
                     background-color: hsl(3, 77%, 44%);
                     color: hsl(200, 60%, 99%);
@@ -129,19 +135,18 @@ body {
         margin-top: 32px;
 
         .itemContainer {
+            width: 92%;
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
             
             .item{
-                width: 345px;
+                width: 100%;
                 height: 200px;
 
                 background-color: hsl(200, 60%, 99%);
                 border: solid 1px hsl(217, 61%, 90%);
                 border-radius: 20px;
-
-                transition: all 1s;
 
                 .itemHeader {
                     margin-top: 20px;
@@ -175,13 +180,11 @@ body {
                 }
 
                 .bar {
-                    width: 100%;
+                    width: 95%;
                     height: 40px;
 
                     margin-top: 22px;
-
-                    padding-left: 6%;
-                    padding-right: 6%;
+                    padding-left: 20px;
                     box-sizing: border-box;
 
                     display: flex;
@@ -200,6 +203,14 @@ body {
 
                         border: solid 1px hsl(217, 61%, 90%);
                         border-radius: 20px;
+
+                        transition: all 0.5s;
+                    }
+
+                    .removeBtn:hover {
+                        background-color: hsl(3, 77%, 44%);
+                        color: hsl(200, 60%, 99%);
+                        transition: all 0.5s;
                     }
                 }
             }

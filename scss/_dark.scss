@@ -1,0 +1,46 @@
+body.dark {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+    .headerBox.dark {
+        background: hsl(226, 25%, 17%);
+        border: none;
+
+        .logo.dark {
+            background-image: url(../assets/images/logo_light.svg);
+        }
+
+        .themeBtn.dark {
+            background: hsl(225, 23%, 24%) url(../assets/images/icon-sun.svg) no-repeat center center;
+        }
+    }
+
+    .asideText.dark {
+        color: hsl(200, 60%, 99%);
+    }
+
+    .btn.dark {
+        color: hsl(200, 60%, 99%) !important;
+        background: hsl(225, 23%, 24%) !important;
+        border: solid 1px hsl(226, 11%, 37%) !important;
+    }
+
+    .btn.selected.dark {
+        color: hsl(225, 23%, 24%) !important;
+        background: hsl(3, 71%, 56%) !important;
+        border: solid 1px hsl(226, 11%, 37%) !important;
+    }
+
+    .item.dark {
+        background-color:hsl(226, 25%, 17%);
+        color: hsl(200, 60%, 99%) !important;
+        border: solid 1px hsl(226, 11%, 37%);
+
+        .description.dark {
+            color: hsl(0, 0%, 78%);
+        }
+
+        .removeBtn.dark {
+            border: solid 1px hsl(226, 11%, 37%);
+        }
+    }
+}

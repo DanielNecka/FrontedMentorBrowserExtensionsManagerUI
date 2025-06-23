@@ -1,15 +1,128 @@
 "use strict";
 let allData = [];
+let theme = "light";
 
 setData();
 setupContentHandler();
+setTheme();
+
+function setTheme() {
+    const btn = document.querySelector(".themeBtn");
+
+    btn.addEventListener('click', () => {
+        const bg = document.querySelector("body");
+        const headerBox = document.querySelector(".headerBox");
+        const logo = document.querySelector(".logo");
+        const themeBtn = document.querySelector(".themeBtn");
+        const asideText = document.querySelector(".asideText");
+        const btns = document.querySelectorAll(".btn")
+        const items = document.querySelectorAll(".item")
+        const description = document.querySelectorAll(".item.description")
+        const removeBtn = document.querySelectorAll(".item.removeBtn")
+
+        if (theme = "light") {
+            theme = "dark";
+
+            bg.classList.add("dark");
+            headerBox.classList.add("dark");
+            logo.classList.add("dark")
+            themeBtn.classList.add("dark")
+            asideText.classList.add("dark")
+
+            btns.forEach(elem => {
+                elem.classList.add("dark")
+            });
+
+            items.forEach(elem => {
+                elem.classList.add("dark")
+            });
+
+            description.forEach(elem => {
+                elem.classList.add("dark")
+            });
+            
+            removeBtn.forEach(elem => {
+                elem.classList.add("dark")
+            });
+
+            setTheme();
+        } else {
+            theme = "light";
+            
+            bg.classList.remove("dark");
+            headerBox.classList.remove("dark");
+            logo.classList.remove("dark")
+            themeBtn.classList.remove("dark")
+            asideText.classList.remove("dark")
+
+            btns.forEach(elem => {
+                elem.classList.remove("dark")
+            });
+
+            items.forEach(elem => {
+                elem.classList.remove("dark")
+            });
+
+            description.forEach(elem => {
+                elem.classList.remove("dark")
+            });
+            
+            removeBtn.forEach(elem => {
+                elem.classList.remove("dark")
+            });
+        }
+    })
+}function setTheme() {
+    const btn = document.querySelector(".themeBtn");
+
+    btn.addEventListener('click', () => {
+        const bg = document.querySelector("body");
+        const headerBox = document.querySelector(".headerBox");
+        const logo = document.querySelector(".logo");
+        const themeBtn = document.querySelector(".themeBtn");
+        const asideText = document.querySelector(".asideText");
+        const btns = document.querySelectorAll(".btn");
+        const items = document.querySelectorAll(".item");
+        const description = document.querySelectorAll(".item.description");
+        const removeBtn = document.querySelectorAll(".item.removeBtn");
+
+        if (theme === "light") {
+            theme = "dark";
+
+            bg.classList.add("dark");
+            headerBox.classList.add("dark");
+            logo.classList.add("dark");
+            themeBtn.classList.add("dark");
+            asideText.classList.add("dark");
+
+            btns.forEach(elem => elem.classList.add("dark"));
+            items.forEach(elem => elem.classList.add("dark"));
+            description.forEach(elem => elem.classList.add("dark"));
+            removeBtn.forEach(elem => elem.classList.add("dark"));
+        } else {
+            theme = "light";
+
+            bg.classList.remove("dark");
+            headerBox.classList.remove("dark");
+            logo.classList.remove("dark");
+            themeBtn.classList.remove("dark");
+            asideText.classList.remove("dark");
+
+            btns.forEach(elem => elem.classList.remove("dark"));
+            items.forEach(elem => elem.classList.remove("dark"));
+            description.forEach(elem => elem.classList.remove("dark"));
+            removeBtn.forEach(elem => elem.classList.remove("dark"));
+        }
+    });
+}
+
 
 function setData() {
     fetch("../data.json")
         .then(response => response.json())
         .then(data => {
             allData = data;
-            loadContent("all"); // Load all data initially
+            loadContent("all");
         });
 }
 
@@ -34,7 +147,7 @@ function setupContentHandler() {
 
 function loadContent(filterType) {
     const container = document.querySelector(".itemContainer");
-    
+
     container.innerHTML = "";
 
     let filteredData = [];
@@ -51,17 +164,28 @@ function loadContent(filterType) {
         const div = createItem(elem);
         container.appendChild(div);
 
+
         const checkbox = div.querySelector('input[type="checkbox"]');
+
         checkbox.checked = elem.isActive;
 
         checkbox.addEventListener('change', () => {
+                
+        const itemToUpdate = allData.find(dataItem => dataItem.name === elem.name);
+        if (itemToUpdate) {
+            itemToUpdate.isActive = checkbox.checked;
+        }
 
-            if (filterType === "active") {
+        const selectedButton = document.querySelector(".btn.selected");
+
+            if (selectedButton.innerText === "All") {
+                loadContent("all");
+            } else if (selectedButton.innerText === "Active") {
                 loadContent("active");
-            } else if (filterType === "inactive") {
+            } else { 
                 loadContent("inactive");
-            }
-        });
+            } 
+        })
     });
 
     removeElem();
@@ -70,6 +194,7 @@ function loadContent(filterType) {
 function createItem(elem) {
     const div = document.createElement("div");
     div.classList.add("item");
+    div.classList.add("dark");
 
     div.innerHTML = `
         <div class="itemHeader">
